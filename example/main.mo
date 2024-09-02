@@ -10,7 +10,7 @@ import CertifiedData "mo:base/CertifiedData";
 import CertTree "mo:cert/CertTree";
 
 import ICRC7 "mo:icrc7-mo";
-import ICRC37 "mo:icrc37-mo";
+import ICRC37 "mo:icrc37-mo-lordrio";
 import ICRC3 "mo:icrc3-mo";
 
 import ICRC7Default "./initial_state/icrc7";
@@ -22,6 +22,7 @@ shared (_init_msg) actor class Example(
     icrc7_args : ?ICRC7.InitArgs;
     icrc37_args : ?ICRC37.InitArgs;
     icrc3_args : ICRC3.InitArgs;
+    boss_principal : Principal;
   }
 ) = this {
 
@@ -58,7 +59,7 @@ shared (_init_msg) actor class Example(
 
   stable var init_msg = _init_msg; //preserves original initialization;
 
-  var boss_principal : Principal = Principal.fromText("ajuq4-ruaaa-aaaaa-qaaga-cai");
+  var boss_principal : Principal = _args.boss_principal;
 
   stable var icrc7_migration_state = ICRC7.init(
     ICRC7.initialState(),
