@@ -21,7 +21,7 @@ ADMIN_PRINCIPAL=$(dfx identity get-principal)
 
 
 #Deploy the canister
-dfx deploy icrc7 --argument 'record {icrc7_args = null; icrc37_args =null; icrc3_args =null;}' --mode reinstall
+dfx deploy icrc7 --argument 'record {icrc7_args = null; icrc37_args =null; icrc3_args =null;boss_principal = principal "ajuq4-ruaaa-aaaaa-qaaga-cai";}' --mode reinstall
 
 ICRC7_CANISTER=$(dfx canister id icrc7)
 
